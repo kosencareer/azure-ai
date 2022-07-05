@@ -22,6 +22,7 @@ namespace EchoBot.Controllers
 
         public BotController(IBotFrameworkHttpAdapter adapter, IBot bot)
         {
+            DotNetEnv.Env.Load("./.env");
             _adapter = adapter;
             _bot = bot;
         }
