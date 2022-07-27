@@ -22,11 +22,11 @@ using System.Diagnostics;
 namespace EchoBot.Bots
 {
     // TextAnalyticsへ接続するためのクラス定義
-    class ApiKeyServiceClientCredentials : ServiceClientCredentials
+    class EchoBotServiceClientCredentials : ServiceClientCredentials
     {
         private readonly string apiKey;
 
-        public ApiKeyServiceClientCredentials(string apiKey)
+        public EchoBotServiceClientCredentials(string apiKey)
         {
             this.apiKey = apiKey;
         }
@@ -67,7 +67,7 @@ namespace EchoBot.Bots
 
         static TextAnalyticsClient AuthenticateClient()
         {
-            ApiKeyServiceClientCredentials credentials = new ApiKeyServiceClientCredentials(KEY);
+            EchoBotServiceClientCredentials credentials = new EchoBotServiceClientCredentials(KEY);
             TextAnalyticsClient client = new TextAnalyticsClient(credentials)
             {
                 Endpoint = ENDPOINT,
