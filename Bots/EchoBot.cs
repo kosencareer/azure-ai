@@ -80,7 +80,7 @@ namespace EchoBot.Bots
             // authenticateClientを呼び出し
             TextAnalyticsClient client = AuthenticateClient();
             // センチメント分析の実行
-            SentimentAnalysisResult analyticsResult = SentimentAnalysis(client, turnContext.Activity.Text);
+            SentimentAnalysisResult analyticsResult = ExecSentimentAnalysis(client, turnContext.Activity.Text);
 
             string replyText = $"Message: {turnContext.Activity.Text}, Score: {analyticsResult.Score}";
             await turnContext.SendActivityAsync(MessageFactory.Text(replyText, replyText), cancellationToken);
@@ -99,7 +99,7 @@ namespace EchoBot.Bots
         }
 
         // Azureのセンチメント分析を実行するメソッド
-        static SentimentAnalysisResult SentimentAnalysis(ITextAnalyticsClient client, string message)
+        static SentimentAnalysisResult ExecSentimentAnalysis(ITextAnalyticsClient client, string message)
         {
             try
             {
