@@ -45,9 +45,9 @@ namespace EchoBot.Bots
     // センチメント分析結果クラスの定義
     class SentimentAnalysisResult
     {
-        public bool IsOk { get; set; }
-        public double? Score { get; set; }
-        public string? ErrorMessage { get; set; }
+        public bool IsOk { get; }
+        public double? Score { get; }
+        public string? ErrorMessage { get; }
 
         public SentimentAnalysisResult(bool IsOk, double? Score = null, string? ErrorMessage = null)
         {
